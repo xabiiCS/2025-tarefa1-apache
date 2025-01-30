@@ -2,26 +2,28 @@ services:
   web:
     build: apache
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ./apache/tarefa1.conf:/etc/apache2/sites-enabled/tarefa1.conf
-      - ./exemplo.lan:/opt/web/exemplo.lan
-
+      - ./buenas.lan:/opt/web/buenas.lan    
     networks:
       redeapache:
         aliases:
-          - exemplo.lan
-          - www.exemplo.lan
+          - www.buenas.lan
+          - buenas.lan
+          - eq1.buenas.lan
+        ipv4_address: 192.168.30.10
     develop:
       watch:
         - path: ./apache/test1.conf
           action: restart
 
   cliente:
-    build: brunosct/debian12-cliente-firefox
+    image: brunosct/debian12-cliente-firefox
     hostname: cliente
     networks:
-      - redeapache
+      redeapache:
+        ipv4_address: 192.168.30.11
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
@@ -29,3 +31,6 @@ services:
 
 networks:
   redeapache:
+    ipam:
+      config:
+        - subnet: 192.168.30.0/24

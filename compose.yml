@@ -2,7 +2,7 @@ services:
   web:
     build: apache
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./apache/tarefa1.conf:/etc/apache2/sites-enabled/tarefa1.conf
       - ./buenas.lan:/opt/web/buenas.lan    

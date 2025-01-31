@@ -38,6 +38,12 @@ Si utilizas una máquina virtual de Google Cloud, selecciona dos nombres dentro 
   - `http://www.exemplo.lan/zz`
   - `http://www.exemplo.lan/33`
 
+### Resultados:
+
+  -![comprobacion1](../img/2-2-1.png)<br>
+  -![comprobacion2](../img/2-2-2.png)
+  
+
 ### 2.3 Configuración de directorios
 
 - En **`33`**, habilitar la opción de listar contenido si no hay archivos de inicio y deshabilitar enlaces simbólicos:

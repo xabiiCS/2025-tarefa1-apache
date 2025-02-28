@@ -1,0 +1,93 @@
+BRUNO:
+
+Se heredan los valores 
+
+Mirar apachedoc/ --> MUY IMPORTANTE
+
+apachectl -M | sort --> Lista los modulos q estas usando
+
+.ht --> ocultar ficheros
+
+regex --> \(escapar)
+
+logformat hay que buscar en la tabla los simbolos
+
+DockerFile medio hecho
+
+Alias fuera de htdocs
+
+Includes puedes incluir otro fichero se hace con options
+
+AllowOverride y opciones
+
+si no ponemos el parametro c en httpasswd añade el usuario
+
+con el -c borra lo q habia, si no existe o lo queremos borrar usamos eso
+
+creamos grupos a mano para auth
+
+ldap nada
+
+para authfile hay q usar el modulo, buscar en apachedco
+
+Contenedores de Autorizacion
+
+logs de errores nada de format, solo arriba
+
+todo lo que no sepamos buscar en htdocs con control+f
+
+customlogs en log de acceso usar Logformat
+
+mensaje de errores personalizado
+
+-------------------------------------------------------------------------
+SRI:
+
+Compose --> aliases:
+          - www.xabi.lan
+          - xabi.lan
+          - eq1.xabi.lan 
+
+- ports.conf -> Listen [p]/[IP]:[p] 
+
+Contextos (htdoc/){
+    - Server (.conf)
+    - VirtualHost (label)
+    - Directory (directory, Location, Files, If, Proxy)
+    - .htaccess
+} 
+
+- ln -s 11/ jk
+
+- el enlace simbolico hereda, el enlazado coge el suyo
+
+- regex --> \.[extension] busca la extension dnd sea
+
+- en los AllowOverride mirar los iguales de los options
+
+- Cambiar nombre de los directorios y leer bien
+
+- RUN a2enmod ssl 
+  RUN a2enmod auth_digest.load
+  RUN a2enmod authz_groupfile.load
+
+  INSTALAR NANO
+
+- ls /etc/apache2/mods-enabled/ 
+- ls /etc/apache2/mods-available/ | grep -i "[interes]"
+
+-En la etiqueta RequireAny = OR
+               RequireAll = TRUE 
+               RequireNone = FALSE 
+
+- En los directorios probablemente haga falta siempre Require all granted               
+ 
+- Mirar mucho el compose (redes y alias) para el certificado
+
+- Formato de logs mirar en apachedoc
+
+- RUN rewrite.load
+----------------------------------------------------------------------------------
+Otros:
+
+Cuantas conexiones TCP se abren para 1 html

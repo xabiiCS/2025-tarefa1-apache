@@ -1,0 +1,19 @@
+AuthType Basic
+AuthName "Acceso a contas"
+AuthBasicProvider file
+AuthUserFile "/opt/web/omeusitio.lan/.htcontas"
+AuthGroupFile "/opt/web/omeusitio.lan/.htgrupos"
+<RequireAny>
+    Require user manolo
+    <RequireAll>
+        Require group G-ADMIN 
+        Require group G-ADMINISTRADORES
+        <RequireAny>
+            Require group G-VENDAS
+            Require group G-COMERCIAIS
+        </RequireAny>
+        Require not ip 192.168.58.99
+        Require not group G-TEMPORAIS
+        Require not group G-INTERNOS
+    </RequireAll>
+</RequireAny>

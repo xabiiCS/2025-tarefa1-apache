@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "myrealm"
+AuthBasicProvider file
+AuthUserFile "/opt/web/omeusitio.lan/.htraballadores"
+Require valid-user
+

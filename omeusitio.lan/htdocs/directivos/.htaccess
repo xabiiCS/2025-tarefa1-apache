@@ -1,0 +1,5 @@
+AuthType Digest
+AuthName "myrealm"
+AuthBasicProvider file
+AuthUserFile "/opt/web/omeusitio.lan/.htdires"
+Require valid-user

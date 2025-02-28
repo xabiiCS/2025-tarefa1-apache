@@ -5,27 +5,57 @@ services:
       - 80:80
     volumes:
       - ./apache/tarefa1.conf:/etc/apache2/sites-enabled/tarefa1.conf
-      - ./exemplo.lan:/opt/web/exemplo.lan
-
+      - ./apache/tarefa2.conf:/etc/apache2/sites-enabled/tarefa2.conf
+      - ./apache/tarefa3.conf:/etc/apache2/sites-enabled/tarefa3.conf
+      - ./omeusitio.lan:/opt/web/omeusitio.lan
+      - ./novositio.lan:/opt/web/novositio.lan
+      - ./xabi.lan:/opt/web/xabi.lan
+      - ./apache/novositio.pem:/etc/ssl/certs/novositio.pem
+      - ./apache/novositio.key:/etc/ssl/private/novositio.key
     networks:
       redeapache:
         aliases:
-          - exemplo.lan
-          - www.exemplo.lan
-    develop:
-      watch:
-        - path: ./apache/test1.conf
-          action: restart
+          - www.xabi.lan
+          - www.omeusitio.lan
+          - www.novositio.lan
+          - xabi.lan
+          - eq1.xabi.lan    
+      prueba:
+        aliases:
+          - www.xabi.lan
+          - www.omeusitio.lan
+          - xabi.lan
+          - eq1.xabi.lan            
+          - www.novositio.lan  
 
   cliente:
     image: brunosct/debian12-cliente-firefox
     hostname: cliente
     networks:
-      - redeapache
+      - prueba
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
 
+  # cliente2:
+  #   image: brunosct/debian12-cliente-firefox
+  #   hostname: cliente2
+  #   networks:
+  #     - prueba  
+  #   environment:
+  #     - DISPLAY=${DISPLAY}
+  #   volumes:
+  #     - /tmp/.X11-unix:/tmp/.X11-unix    
+
 networks:
   redeapache:
+    ipam:
+      config:
+        - subnet: 192.168.58.128/25
+  prueba:
+    ipam:
+      config:
+        - subnet: 192.168.58.0/25 
+
+ 

@@ -1,0 +1,116 @@
+				TEORIA SRI 
+____________________________________________________________________
+WEB:
+
+- Unha rede de documentos enlazados a través de hipervínculos, 
+  hiperenlaces ou hiperligazóns. Cada documento é un nodo da rede.
+  
+- Unha rede de servidores encargados de aloxar e distribuír os documentos.
+
+- Programas clientes chamados navegadores que mostran os 
+  documentos cos hiperenlaces de forma que se se pulsa co rato sobre
+  eles se abren as páxinas web coas que están enlazados.
+---------------------------------------------------------------------------
+URL:
+
+-Unha URL é unha secuencia de caracteres cun formato determinado 
+que permite localizar un recurso en Internet ou noutra rede calquera.  
+  
+- Protocolo://usuario:contrasinal@máquina:puerto/ruta_recurso 
+---------------------------------------------------------------------------
+HTTP:
+
+Cando nun navegador web escribimos a URL dunha páxina web:
+
+- O DNS resolve o nome de equipo servidor web usado na URL.
+  
+- Obtida a IP do servidor HTTP, establécese unha conexión TCP
+  entre cliente e servidor HTTP.
+  
+- Establecida a conexión TCP, faise a petición do documento web
+  ao servidor e este devolve o seu contido nunha mensaxe de resposta.
+  Se o documento web inclúe elementos adicionais como imaxes, 
+  hai un proceso de envío petición/resposta por cada imaxe.
+  
+- El buscador es el user agent (+ user data)
+---------------------------------------------------------------------------
+Mensajes HTTP:
+
+codificacion ASCII{
+	- Peticion/resposta [GET],[URI],[Version HTTP]
+	- Encabezados[host],[UA]...
+	- <br>
+	- Corpo de mensaxe opcional
+}
+---------------------------------------------------------------------------
+Encabezados HTTP:
+
+Informacion{
+	- GET (URL) 
+	- POST(Corpo Mensaxe),
+	- HEAD(solo pide x usando browser)
+	-----------HTTP 1.1---------------
+	- PUT(autoriza si esta en config)
+	- DELETE(elimina URI si esta en config)
+	- OPTIONS(informe sobre caracteristicas)
+	- TRACE(saber si llega bien)
+	- CONNECT(solicita https)
+}
+tipos{
+	-host, UA, ACCEPT, A-Language, A-Charset, Referer, Cookie
+}
+---------------------------------------------------------------------------
+Mensaxes resposta:
+
+Linea resposta --> Proto, Codigo, Descrip
+Encabezados --> DATE, Server(como UA pero server), Connection, Content+C-Encode
+Linea Vacia -->
+Cuerpo Mensaje --> HTML	
+---------------------------------------------------------------------------
+Codigos de resposta:
+
+Numero de 3 cifras que indica estado de la respuesta{
+	- 1xx = Resposta informativa, recibida.
+	- 2xx = Peticion correcta 
+	- 3xx = Reenderezo
+	- 4xx = Erros do cliente
+	- 5xx = Erro do servidor
+}
+---------------------------------------------------------------------------
+Tipos MIME:
+
+codificacion para archivos no html con 2 encabezados{
+	+ Mime-version
+	+ Content-type (image.jpeg)	
+}
+---------------------------------------------------------------------------
+Servidores Web:
+
+{
+	- Apache (+ Usado, multi)
+	- Microsoft IIS (Licencia, solo W)
+	- Oracle iPlanet Web Server (multi)
+	- Tomcat (Multi)
+	- Nginx (pocos recursos, multi)
+	- Lighhtttp (pocos recursos, multi)
+}
+---------------------------------------------------------------------------
+Servidores Web:
+
+basados en IPs, Portos ou nomes. Alverga x servers segun eso.
+---------------------------------------------------------------------------
+Navegadores Web:
+
+Programa q interpreta la respuesta del server y q permite interactuar
+con links. Tamén a partir do código HTML, un navegador representa 
+en pantalla marcos, viñetas, cores de fondo, imaxes etc..
+---------------------------------------------------------------------------
+HTTPS:
+
+Mezcla HTTP con SSL o TLS cifrando mensajes, integridad y autenticacion
+---------------------------------------------------------------------------
+Autoridades Certificadoras:
+
+VeriSign, GlobalSign, CyberTrust, RSA Security
+
+A Fábrica de Moeda e Timbre oferta os certificados
